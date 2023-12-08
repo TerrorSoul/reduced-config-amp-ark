@@ -1,0 +1,261 @@
+[
+    {
+        "DisplayName": "Map",
+        "Category": "ARK Server Settings",
+        "Description": "Sets the map for the server. If Custom is selected, Custom Map Name must also be set",
+        "Keywords": "map",
+        "FieldName": "Map",
+        "InputType": "enum",
+        "ParamFieldName": "Map",
+        "DefaultValue": "TheIsland_WP",
+        "EnumValues": {
+            "TheIsland_WP": "The Island (default)",
+            "{{CustomMap}}": "--Custom--"
+        }
+    },
+    {
+        "DisplayName": "Custom Map Name",
+        "Category": "ARK Server Settings",
+        "Description": "Sets a custom map for the server. \"Custom\" type must be selected under Map, and the CurseForge Project ID for the map included under Mods List",
+        "Keywords": "custom,map",
+        "FieldName": "CustomMap",
+        "InputType": "text",
+        "ParamFieldName": "CustomMap",
+        "DefaultValue": "",
+        "Placeholder": "Svartalfheim_WP",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Use Mods",
+        "Category": "ARK Server Settings",
+        "Description": "If set, enables automatic mod downloading, updating and loading (on server start). Specify the relevant mods under Mods List. Don't enable this setting if no mods are specified under Mods List or the server will not start",
+        "Keywords": "auto,managed,mods",
+        "FieldName": "mods",
+        "InputType": "checkbox",
+        "ParamFieldName": "mods",
+        "DefaultValue": "",
+        "EnumValues": {
+            "False": "",
+            "True": "-mods={{modslist}} "
+        }
+    },
+    {
+        "DisplayName": "Mods List",
+        "Category": "ARK Server Settings",
+        "Description": "Comma-separated and ordered list of [CurseForge Project IDs](https://www.curseforge.com/ark-survival-ascended) for mods to install and load on server start (map mods will not load unless also named as a \"Custom\" map under Custom Map Name). Requires Use Mods to be enabled",
+        "Keywords": "mods,list",
+        "FieldName": "modslist",
+        "InputType": "text",
+        "ParamFieldName": "modslist",
+        "DefaultValue": "",
+        "Placeholder": "900062,893657",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Enable Steam/PC Mods Only",
+        "Category": "ARK Server Settings",
+        "Description": "If set, crossplay mods will be disabled on the server",
+        "Keywords": "crossplay,pc,steam,mods,pconlymods",
+        "FieldName": "pconlymods",
+        "InputType": "checkbox",
+        "ParamFieldName": "pconlymods",
+        "DefaultValue": "",
+        "EnumValues": {
+            "False": "",
+            "True": "-pconlymods "
+        }
+    },
+    {
+        "DisplayName": "Active Event",
+        "Category": "ARK Server Settings",
+        "Description": "Sets the server's active event, if any. Some events may only work partially or not at all. Most special event assets are removed after the event. Use Custom and set Custom Event Name for an event not listed",
+        "Keywords": "active,event,activeevent",
+        "FieldName": "ActiveEvent",
+        "InputType": "enum",
+        "ParamFieldName": "ActiveEvent",
+        "DefaultValue": "None",
+        "EnumValues": {
+            "None": "None",
+            "{{CustomEvent}}": "--Custom--"
+        }
+    },
+    {
+        "DisplayName": "Custom Event Name",
+        "Category": "ARK Server Settings",
+        "Description": "Sets a custom active event name for the server. \"Custom\" type must be selected under Active Event",
+        "Keywords": "custom,active,event,activeevent",
+        "FieldName": "CustomEvent",
+        "InputType": "text",
+        "ParamFieldName": "CustomEvent",
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Player Limit",
+        "Category": "ARK Server Settings",
+        "Description": "Sets the maximum number of players allowed on the server",
+        "Keywords": "max,players,limit,maxplayers",
+        "FieldName": "$MaxUsers",
+        "InputType": "number",
+        "MinValue": "1",
+        "ParamFieldName": "MaxPlayers",
+        "DefaultValue": "70",
+        "Placeholder": "70",
+        "Suffix": "players",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "MultiHome IP Binding",
+        "Category": "ARK Server Settings",
+        "Description": "If required, you can change the binding of the server and RCON to an internal interface IP by editing App.ApplicationIPBinding in GenericModule.kvp for the instance. Stop the instance (not just the server) first. Ensure AMP itself can reach that IP or the console will not work",
+        "Keywords": "ip,binding,address,multihome",
+        "FieldName": "MultiHome",
+        "InputType": "hidden",
+        "ParamFieldName": "MultiHome",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Disable BattlEye",
+        "Category": "ARK Server Settings",
+        "Description": "If set, BattlEye will be disabled on the server",
+        "Keywords": "battleye,disable,nobattleye",
+        "FieldName": "BattlEye",
+        "InputType": "checkbox",
+        "ParamFieldName": "BattlEye",
+        "DefaultValue": "",
+        "EnumValues": {
+            "False": "",
+            "True": "-NoBattlEye "
+        }
+    },
+    {
+        "DisplayName": "Client Platform/Crossplay Support",
+        "Category": "ARK Server Settings",
+        "Description": "List (separated by +, such as: XSX+PS5) of the game client platforms supported by the server. 'PC' = Steam/PC, 'XSX' = Xbox, 'WINGDK' = Microsoft Store/PC, 'PS5' = PlayStation 5, 'ALL' = all platforms. Crossplay will be enabled if more than one platform is specified",
+        "Keywords": "crossplay,platform,pc,xbox,ps5,windows,serverplatform",
+        "FieldName": "ServerPlatform",
+        "InputType": "text",
+        "ParamFieldName": "ServerPlatform",
+        "DefaultValue": "ALL",
+        "Placeholder": "ALL",
+        "Required": true,
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Banlist URL",
+        "Category": "ARK Server Settings",
+        "Description": "Sets a banlist to disallow access to the server to specified players (identified by Steam64 ID). Use either the global banlist of ARK, or a custom banlist URL",
+        "Keywords": "ban,banlist,blacklist,banlisturl",
+        "FieldName": "BanListURL",
+        "InputType": "text",
+        "ParamFieldName": "ServerSettings.BanListURL",
+        "DefaultValue": "http://arkdedicated.com/banlist.txt",
+        "Placeholder": "http://arkdedicated.com/banlist.txt",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Auto Save Period",
+        "Category": "ARK Server Settings",
+        "Description": "Sets the interval for automatic saves. 0 = constant saving, 9000000 = effectively disabled",
+        "Keywords": "auto,save,period,minutes,autosaveperiodminutes",
+        "FieldName": "AutoSavePeriodMinutes",
+        "InputType": "number",
+        "MinValue": "0",
+        "MaxValue": "9000000",
+        "ParamFieldName": "AutoSavePeriodMinutes",
+        "IncludeInCommandLine": true,
+        "DefaultValue": "15.0",
+        "Placeholder": "15.0",
+        "Suffix": "minutes",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Disable Hang Detection",
+        "Category": "ARK Server Settings",
+        "Description": "If set, prevents the server from shutdown if its start-time takes more than 2700 seconds (45 minutes). Useful for servers with big saves or very slow machines",
+        "Keywords": "hang,detection,disabled,NoHangDetection",
+        "FieldName": "NoHangDetection",
+        "InputType": "checkbox",
+        "ParamFieldName": "NoHangDetection",
+        "DefaultValue": "",
+        "EnumValues": {
+            "False": "",
+            "True": "-NoHangDetection "
+        }
+    },
+    {
+        "DisplayName": "Language",
+        "Category": "ARK Server Settings",
+        "Description": "Sets the language of the server",
+        "Keywords": "language,culture",
+        "FieldName": "culture",
+        "InputType": "enum",
+        "ParamFieldName": "culture",
+        "DefaultValue": "en",
+        "EnumValues": {
+            "ca": "Catal\u00e0",
+            "cs": "\u010de\u0161tina",
+            "da": "dansk",
+            "de": "Deutsch",
+            "en": "English (default)",
+            "es": "Espa\u00f1ol",
+            "eu": "euskara",
+            "fi": "suomi",
+            "fr": "Fran\u00e7ais",
+            "hu": "magyar",
+            "it": "Italiano",
+            "ja": "\u65e5\u672c\u8a9e",
+            "ka": "\u10e5\u10d0\u10e0\u10d7\u10e3\u10da\u10d8",
+            "ko": "\ud55c\uad6d\uc5b4",
+            "nl": "Nederlands",
+            "pl": "Polski",
+            "pt_BR": "Portugu\u00eas brasileiro",
+            "ru": "\u0420\u0443\u0441\u0441\u043a\u0438\u0439",
+            "sv": "Svenska",
+            "th": "\u0e44\u0e17\u0e22",
+            "tr": "T\u00fcrk\u00e7e",
+            "zh": "\u4e2d\u6587",
+            "zh-Hans-CN": "\u4f7f\u7528\u8005",
+            "zh-TW": "\u56fd\u8bed"
+        }
+    },
+    {
+        "DisplayName": "Custom Command Line Flags",
+        "Category": "ARK Server Settings",
+        "Description": "Sets custom [command line flags](https://ark.wiki.gg/wiki/Server_configuration_(Survival_Ascended%29) for the server (those that start with a - (dash)). Include the dash and separate with a space. Don't use flags already in AMP's settings!",
+        "Keywords": "custom,command,line,flags",
+        "FieldName": "CustomFlags",
+        "InputType": "text",
+        "ParamFieldName": "CustomFlags",
+        "DefaultValue": "",
+        "Placeholder": "-UseItemDupeCheck -UseSecureSpawnRules",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Custom Command Line Options",
+        "Category": "ARK Server Settings",
+        "Description": "Sets custom [command line options](https://ark.wiki.gg/wiki/Server_configuration_(Survival_Ascended%29) for the server (those that start with a ? (question mark)). Include the question mark but do not separate with a space. Don't use options already in AMP's settings!",
+        "Keywords": "custom,command,line,options",
+        "FieldName": "CustomOptions",
+        "InputType": "text",
+        "ParamFieldName": "CustomOptions",
+        "DefaultValue": "",
+        "Placeholder": "?ClampItemStats=True?NewYear1UTC=1672592400",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Download Backup Exclusion Files",
+        "Category": "SteamCMD and Updates",
+        "Description": "If enabled, default backup exclusion configuration files are downloaded when the server is updated, to save space on AMP backups. If disabled, manually delete any .backupExclude files in the server base directory and in the ShooterGame directory to prevent backup exclusions",
+        "Keywords": "backup,exclude,exclusion,file",
+        "FieldName": "backupExclude",
+        "InputType": "checkbox",
+        "ParamFieldName": "backupExclude",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    }
+]
